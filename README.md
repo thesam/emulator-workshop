@@ -23,4 +23,6 @@ We are going to write an emulator for the CHIP-8 virtual machine.
 * Popular among people getting started with emulators (easy to Google)
 * Virtual machine, not hardware (technically NOT an emulator)
 ## How?
-By following this guide: https://tobiasvl.github.io/blog/write-a-chip-8-emulator/
+* By following this guide: https://tobiasvl.github.io/blog/write-a-chip-8-emulator/
+* Use any language you want
+* A "state of the art" Java Swing application is included in this repo
