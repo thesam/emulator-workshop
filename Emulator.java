@@ -8,7 +8,7 @@ public class Emulator {
         this.gui = gui;
     }
 
-    public void run() {
+    public void run(byte[] input) {
         // TODO: Replace with fetch-decode-execute-loop
         Random random = new Random();
         while(true) {
