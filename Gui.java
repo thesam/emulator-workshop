@@ -3,6 +3,7 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
+import java.lang.reflect.InvocationTargetException;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.Set;
 
@@ -15,8 +16,8 @@ public class Gui {
     private int BLACK = Color.black.getRGB();
     private MainPanel panel;
 
-    public void show() {
-        SwingUtilities.invokeLater(() -> {
+    public void show() throws InterruptedException, InvocationTargetException {
+        SwingUtilities.invokeAndWait(() -> {
             screen = new BufferedImage(64, 32, BufferedImage.TYPE_INT_RGB);
             JFrame frame = new JFrame("Emulator");
             frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -33,8 +34,21 @@ public class Gui {
         panel.repaint();
     }
 
+    public void clearPixel(int x, int y) {
+        this.screen.setRGB(x, y, BLACK);
+        panel.repaint();
+    }
+
     public boolean isKeyPressed(int keyCode) {
         return pressedKeys.contains(keyCode);
+    }
+
+    public void clear() {
+        for (int x = 0; x < 64; x++) {
+            for (int y = 0; y < 32; y++) {
+                clearPixel(x,y);
+            }
+        }
     }
 
     class MainPanel extends JPanel implements KeyListener {

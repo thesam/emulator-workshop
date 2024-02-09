@@ -5,8 +5,8 @@ import java.nio.file.Path;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException {
-        byte[] input = Files.readAllBytes(Path.of("INPUT.ROM"));
+    public static void main(String[] args) throws Exception {
+        byte[] input = Files.readAllBytes(Path.of("IBM.ch8"));
         Gui gui = new Gui();
         Emulator emulator = new Emulator(gui);
         gui.show();
